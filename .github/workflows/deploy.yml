@@ -28,6 +28,13 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Preload upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dummy
+          path: README.md
+          if-no-files-found: ignore
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
@@ -43,6 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-# ADD THIS LINE BELOW THE JOBS IF YOU STILL SEE ERRORS
-# You can cache or pin versions of actions as needed
