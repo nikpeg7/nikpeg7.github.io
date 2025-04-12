@@ -28,8 +28,9 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Preload upload-artifact
-        uses: actions/upload-artifact@v3
+      # Instead of using v3, use v2 here to ensure the dependency is satisfied.
+      - name: Preload upload-artifact (v2)
+        uses: actions/upload-artifact@v2
         with:
           name: dummy
           path: README.md
