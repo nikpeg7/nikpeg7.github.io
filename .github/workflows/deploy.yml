@@ -28,14 +28,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      # Preload upload-artifact using an explicit version
-      - name: Preload upload-artifact (v2)
-        uses: actions/upload-artifact@v2.3.1
-        with:
-          name: dummy
-          path: README.md
-          if-no-files-found: ignore
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
